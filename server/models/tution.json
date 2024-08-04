@@ -1,0 +1,70 @@
+{
+  "name": "Tution",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+
+    "tution_subject_id": {
+      "name": "tution_subject_id",
+      "foreignKey": "tution_subject_id",
+      "entityKey": "id",
+      "entity": "Subject"
+    },
+    "tution_teacher_id": {
+      "name": "tution_teacher_id",
+      "foreignKey": "tution_teacher_id",
+      "entityKey": "id",
+      "entity": "Teacher"
+    },
+    "tution_location_id": {
+      "name": "tution_location_id",
+      "foreignKey": "tution_location_id",
+      "entityKey": "id",
+      "entity": "Location"
+    },
+    "tution_category_id": {
+      "name": "tution_category_id",
+      "foreignKey": "tution_category_id",
+      "entityKey": "id",
+      "entity": "Category"
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Subject": {
+      "type": "belongsTo",
+      "model": "Subject",
+      "foreignKey": "tution_subject_id",
+      "primaryKey": "id"
+    },
+    "Teacher": {
+      "type": "belongsTo",
+      "model": "Teacher",
+      "foreignKey": "tution_teacher_id",
+      "primaryKey": "id"
+    },
+    "Location": {
+      "type": "belongsTo",
+      "model": "Location",
+      "foreignKey": "tution_location_id",
+      "primaryKey": "id"
+    },
+    "Category": {
+      "type": "belongsTo",
+      "model": "Category",
+      "foreignKey": "tution_category_id",
+      "primaryKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

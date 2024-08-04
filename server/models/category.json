@@ -1,0 +1,30 @@
+{
+  "name": "Category",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {},
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Subject": {
+      "type": "hasMany",
+      "model": "Subject",
+      "foreignKey": "subject_category_id"
+    },
+    "Tution": {
+      "type": "hasMany",
+      "model": "Tution",
+      "foreignKey": "tution_category_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

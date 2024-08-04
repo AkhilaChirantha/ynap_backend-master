@@ -1,0 +1,29 @@
+{
+  "name": "Student",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {},
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "grade": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Feedback": {
+      "type": "hasMany",
+      "model": "Feedback",
+      "foreignKey": "feedback_student_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

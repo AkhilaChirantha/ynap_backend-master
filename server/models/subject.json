@@ -1,0 +1,48 @@
+{
+  "name": "Subject",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "subject_category_id": {
+      "name": "subject_category_id",
+      "foreignKey": "subject_category_id",
+      "entityKey": "id",
+      "entity": "Category"
+    }
+  },
+  "properties": {
+    "subject": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Paper": {
+      "type": "hasMany",
+      "model": "Paper",
+      "foreignKey": "paper_subject_id"
+    },
+    "SubjectSyllabus": {
+      "type": "hasMany",
+      "model": "SubjectSyllabus",
+      "foreignKey": "subjectSyllabus_subject_id"
+    },
+    "Tution": {
+      "type": "hasMany",
+      "model": "Tution",
+      "foreignKey": "tution_subject_id"
+    },
+    "Category": {
+      "type": "belongsTo",
+      "model": "Category",
+      "foreignKey": "subject_category_id",
+      "primaryKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

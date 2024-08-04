@@ -1,0 +1,33 @@
+{
+  "name": "Feedback",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "feedback_student_id": {
+      "name": "feedback_student_id",
+      "foreignKey": "feedback_student_id",
+      "entityKey": "id",
+      "entity": "Student"
+    }
+  },
+  "properties": {
+    "message": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Student": {
+      "type": "belongsTo",
+      "model": "Student",
+      "foreignKey": "feedback_student_id",
+      "primaryKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

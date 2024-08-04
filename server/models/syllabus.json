@@ -1,0 +1,32 @@
+{
+  "name": "Syllabus",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {},
+  "properties": {
+    "subject": {
+      "type": "string",
+      "required": true
+    },
+    "grade": {
+      "type": "string",
+      "required": true
+    },
+    "filePath": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "SubjectSyllabus": {
+      "type": "hasMany",
+      "model": "SubjectSyllabus",
+      "foreignKey": "subjectSyllabus_syllabus_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

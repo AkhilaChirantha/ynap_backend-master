@@ -1,0 +1,37 @@
+{
+  "name": "Paper",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "paper_subject_id": {
+      "name": "paper_subject_id",
+      "foreignKey": "paper_subject_id",
+      "entityKey": "id",
+      "entity": "Subject"
+    }
+  },
+  "properties": {
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "grade": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Subject": {
+      "type": "belongsTo",
+      "model": "Subject",
+      "foreignKey": "paper_subject_id",
+      "primaryKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

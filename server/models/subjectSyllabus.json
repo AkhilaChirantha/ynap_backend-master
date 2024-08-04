@@ -1,0 +1,49 @@
+{
+  "name": "SubjectSyllabus",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "subjectSyllabus_subject_id": {
+      "name": "subjectSyllabus_subject_id",
+      "foreignKey": "subjectSyllabus_subject_id",
+      "entityKey": "id",
+      "entity": "Subject"
+    },
+    "subjectSyllabus_syllabus_id": {
+      "name": "subjectSyllabus_syllabus_id",
+      "foreignKey": "subjectSyllabus_syllabus_id",
+      "entityKey": "id",
+      "entity": "Syllabus"
+    }
+  },
+  "properties": {
+    "statYear": {
+      "type": "number",
+      "required": true
+    },
+    "endYear": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Subject": {
+      "type": "belongsTo",
+      "model": "Subject",
+      "foreignKey": "subjectSyllabus_subject_id",
+      "primaryKey": "id"
+    },
+    "Syllabus": {
+      "type": "belongsTo",
+      "model": "Subject",
+      "foreignKey": "subjectSyllabus_syllabus_id",
+      "primaryKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
