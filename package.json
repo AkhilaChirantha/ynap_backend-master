@@ -11,11 +11,12 @@
     "posttest": "npm run lint"
   },
   "dependencies": {
-    "async": "3.2.4",
+    "async": "^3.2.4",
     "aws-sdk": "2.1430.0",
     "body-parser": "^1.20.2",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
+    "formidable": "^3.5.1",
     "helmet": "^3.10.0",
     "loopback": "^3.22.0",
     "loopback-boot": "^2.6.5",
