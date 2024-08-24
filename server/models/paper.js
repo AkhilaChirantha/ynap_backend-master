@@ -31,10 +31,13 @@ module.exports = function (Paper) {
 
         form.parse(option, (err, fields, files) => {
             const saveObject = saveObjectMaker(fields);
+            console.log("saveObject: ", saveObject);
 
             forEach(filesArray, (file, file_cb) => {
                 fs.rename(file.filepath, `${form.uploadDir}/${file.originalFilename}`, (err) => {
+                    console.error(err)
                     if (err) return cb(err);
+                    file_cb()
                 });
             }, key_err => {
                 console.log('======================================');
