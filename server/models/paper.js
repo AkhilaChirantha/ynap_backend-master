@@ -95,16 +95,19 @@ module.exports = function (Paper) {
     });
 
     Paper.download = function (fileName, res, cb) {
-        let filePath = fs.realpathSync(path.join('./upload/paper'));
+        let filePath = path.resolve('./upload/paper'); // Resolves the file path correctly
+        res.setHeader('Content-Type', 'application/pdf');
 
         try {
-            let file = fs.readFileSync(filePath + `/${fileName}`, 'utf8');
+            // Read the file in binary mode without specifying 'utf8'
+            let file = fs.readFileSync(path.join(filePath, fileName));
+
+            // Send the binary data directly
             return res.send(file);
         } catch (e) {
             let error = new Error('File Not Found');
             error.code = 'FILE_NOT_FOUND';
             error.statusCode = 400;
-
             return cb(error);
         }
     };
