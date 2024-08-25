@@ -30,11 +30,11 @@ module.exports = function (Paper) {
         });
 
         form.parse(option, (err, fields, files) => {
-            const saveObject = saveObjectMaker(fields);
-            console.log("saveObject: ", saveObject);
 
             forEach(filesArray, (file, file_cb) => {
                 fs.rename(file.filepath, `${form.uploadDir}/${file.originalFilename}`, (err) => {
+                    const saveObject = saveObjectMaker(fields, originalFilename);
+                    console.log("saveObject: ", saveObject);
                     console.error(err)
                     if (err) return cb(err);
                     file_cb()
@@ -50,8 +50,8 @@ module.exports = function (Paper) {
         });
     };
 
-    function saveObjectMaker(data) {
-        const saveObject = { type: '', grade: '', paper_subject_id: -1 }
+    function saveObjectMaker(data, fileName) {
+        const saveObject = { fileName, type: '', grade: '', paper_subject_id: -1 }
         for (var key in data) {
             console.log(key, data[key][0]);
             saveObject[key] = data[key][0];
